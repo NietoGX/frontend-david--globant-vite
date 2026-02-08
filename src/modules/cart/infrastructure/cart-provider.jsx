@@ -1,11 +1,10 @@
 import { createContext, useContext, useEffect, useState, useCallback, useMemo } from 'react';
 import { initialize } from '@/modules/shared/infrastructure/bootstrap';
 
-const { cartFacade } = initialize();
-
 export const CartContext = createContext(undefined);
 
 export function CartProvider({ children }) {
+    const facades = useMemo(() => initialize(), []);
     const [cartCount, setCartCount] = useState(0);
 
     useEffect(() => {
@@ -16,11 +15,11 @@ export function CartProvider({ children }) {
     }, []);
 
     const addToCart = useCallback(async (item) => {
-        const count = await cartFacade.addToCart(item);
+        const count = await facades.cartFacade.addToCart(item);
         setCartCount(count);
         localStorage.setItem('cartCount', count.toString());
         return count;
-    }, []);
+    }, [facades]);
 
     const value = useMemo(() => ({
         cartCount,

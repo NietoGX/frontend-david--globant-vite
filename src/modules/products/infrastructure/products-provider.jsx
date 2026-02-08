@@ -1,15 +1,15 @@
-import { createContext, useContext, useMemo } from 'react';
+import { createContext, useContext, useMemo, useEffect } from 'react';
 import { initialize } from '@/modules/shared/infrastructure/bootstrap';
-
-const { productsFacade } = initialize();
 
 export const ProductsContext = createContext(undefined);
 
 export function ProductsProvider({ children }) {
+    const facades = useMemo(() => initialize(), []);
+
     const value = useMemo(() => ({
-        getProductList: async (search) => productsFacade.getProductList(search),
-        getProductDetail: async (id) => productsFacade.getProductDetail(id),
-    }), []);
+        getProductList: async (search) => facades.productsFacade.getProductList(search),
+        getProductDetail: async (id) => facades.productsFacade.getProductDetail(id),
+    }), [facades]);
 
     return (
         <ProductsContext.Provider value={value}>
