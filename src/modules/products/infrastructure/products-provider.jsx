@@ -1,4 +1,4 @@
-import { createContext, useContext, useMemo, useEffect } from 'react';
+import { createContext, useContext, useMemo } from 'react';
 import { initialize } from '@/modules/shared/infrastructure/bootstrap';
 
 export const ProductsContext = createContext(undefined);

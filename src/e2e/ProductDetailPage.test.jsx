@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { render, screen, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { BrowserRouter, useParams } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import { Ioc } from '@/modules/shared/infrastructure/core/Ioc';
 import { IID } from '@/modules/shared/infrastructure/bootstrap/IID';
 import { ProductDetailPage } from '@/pages/ProductDetailPage';
