@@ -1,7 +1,7 @@
 export class CacheManager {
     static DEFAULT_TTL_SECONDS = 3600;
 
-    static set(key, value, ttl = CacheManager.DEFAULT_TTL_SECONDS) {
+    set(key, value, ttl = CacheManager.DEFAULT_TTL_SECONDS) {
         if (typeof window === 'undefined') return;
 
         const entry = {
@@ -15,7 +15,7 @@ export class CacheManager {
         }
     }
 
-    static get(key) {
+    get(key) {
         if (typeof window === 'undefined') return null;
 
         try {
@@ -35,7 +35,7 @@ export class CacheManager {
         }
     }
 
-    static remove(key) {
+    remove(key) {
         if (typeof window === 'undefined') return;
         localStorage.removeItem(key);
     }

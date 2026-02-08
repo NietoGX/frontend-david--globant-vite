@@ -3,12 +3,12 @@ import { z } from 'zod';
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://itx-frontend-test.onrender.com/api';
 
 export class HttpClient {
-    static async get(path, options) {
-        return HttpClient.request(path, { ...options, method: 'GET' });
+    async get(path, options) {
+        return this.request(path, { ...options, method: 'GET' });
     }
 
-    static async post(path, body, options) {
-        return HttpClient.request(path, {
+    async post(path, body, options) {
+        return this.request(path, {
             ...options,
             method: 'POST',
             body: JSON.stringify(body),
@@ -19,7 +19,7 @@ export class HttpClient {
         });
     }
 
-    static async request(path, options) {
+    async request(path, options) {
         const url = path.startsWith('http') ? path : `${API_BASE_URL}${path}`;
 
         try {

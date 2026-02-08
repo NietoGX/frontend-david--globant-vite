@@ -6,6 +6,8 @@ export const IID = {
     getProductDetailUseCase: 'getProductDetailUseCase',
     cartRepository: 'cartRepository',
     addToCartUseCase: 'addToCartUseCase',
+    cacheManager: 'cacheManager',
+    httpClient: 'httpClient',
 };
 
 export function inject(key) {
