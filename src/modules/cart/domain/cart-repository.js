@@ -1,5 +1,5 @@
 export class CartRepository {
-    async addToCart(productId, colorCode, storageCode) {
+    async addToCart() {
         throw new Error('Method not implemented');
     }
 }

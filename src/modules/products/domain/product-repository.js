@@ -3,7 +3,7 @@ export class ProductRepository {
         throw new Error('Method not implemented');
     }
 
-    async getProductDetail(id) {
+    async getProductDetail() {
         throw new Error('Method not implemented');
     }
 }
