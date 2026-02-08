@@ -50,13 +50,13 @@ export function ProductDetailPage() {
                         <span className="inline-flex text-3xl font-bold text-foreground">{product.price ? `${product.price} €` : 'Price not available'}</span>
                     </div>
 
+                    <ProductDescription product={product} />
+
                     <ProductActions
                         colors={product.options.colors}
                         storages={product.options.storages}
                         onAddToCart={addToCart}
                     />
-
-                    <ProductDescription product={product} />
                 </div>
             </div>
         </main>
